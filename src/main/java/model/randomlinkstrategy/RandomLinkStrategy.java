@@ -19,7 +19,4 @@ public class RandomLinkStrategy implements LinkStrategy {
     public Link generateLastPositionLink() {
         return new Link(generateLinkable(), false);
     }
-
-    RandomLinkStrategy() {
-    }
 }
