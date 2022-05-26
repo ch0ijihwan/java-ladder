@@ -1,4 +1,6 @@
-package model.ramdomlinkable;
+package model.randomlinkstrategy;
+
+import model.ladder.Link;
 
 public interface LinkStrategy {
 

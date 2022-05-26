@@ -1,6 +1,6 @@
 package model.ladder;
 
-import model.randomlinkStrategy.LinkStrategy;
+import model.randomlinkstrategy.LinkStrategy;
 
 import java.util.Objects;
 
