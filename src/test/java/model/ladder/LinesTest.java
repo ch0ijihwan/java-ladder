@@ -61,8 +61,8 @@ class LinesTest {
     void getAllLineLinkStatus() {
         //given
         List<List<Boolean>> expect = List.of(
-                List.of(true, false, true, false),
-                List.of(false, true, false, false)
+                List.of(true, false, true),
+                List.of(false, true, false)
         );
 
         //when
