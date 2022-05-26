@@ -22,7 +22,7 @@ public class Point {
     }
 
     public Point nextPoint(final LinkStrategy linkStrategy) {
-        return new Point(index + 1, new Link(link.getRight(), linkStrategy.generateLinkable()));
+        return new Point(index + 1, link.nextLink(linkStrategy));
     }
 
     public boolean hasRightLink() {
