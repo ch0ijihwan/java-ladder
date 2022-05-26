@@ -2,6 +2,8 @@ package model.ladder;
 
 import model.randomlinkstrategy.LinkStrategy;
 
+import java.util.Objects;
+
 public class Point {
 
     private final int index;
@@ -35,5 +37,18 @@ public class Point {
 
     public int move() {
         return index + link.move();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return index == point.index && Objects.equals(link, point.link);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(index, link);
     }
 }
