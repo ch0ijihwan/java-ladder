@@ -1,4 +1,4 @@
-package model.randomlinkStrategy;
+package model.randomlinkstrategy;
 
 import model.ladder.Link;
 import org.junit.jupiter.api.DisplayName;
