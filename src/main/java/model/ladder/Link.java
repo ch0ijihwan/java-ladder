@@ -11,7 +11,6 @@ public class Link {
 
     public Link(final boolean left, final boolean right) {
         validateLinkOverlap(left, right);
-
         this.left = left;
         this.right = right;
     }
