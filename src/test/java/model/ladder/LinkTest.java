@@ -1,6 +1,6 @@
-package model.randomlinkstrategy;
+package model.ladder;
 
-import model.ladder.Link;
+import model.randomlinkstrategy.LinkStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

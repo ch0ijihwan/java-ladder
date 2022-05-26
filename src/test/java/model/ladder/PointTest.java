@@ -1,7 +1,5 @@
-package model;
+package model.ladder;
 
-import model.ladder.Link;
-import model.ladder.Point;
 import model.randomlinkstrategy.LinkStrategy;
 import model.randomlinkstrategy.RandomLinkStrategy;
 import org.junit.jupiter.api.DisplayName;
@@ -102,7 +100,7 @@ class PointTest {
         int countOfPlayer = 4;
         int lastIndex = 3;
         //when
-        Point actual = Point.createLast(countOfPlayer,linkStrategy);
+        Point actual = Point.createLast(countOfPlayer, linkStrategy);
 
         //then
         assertThat(actual.hasRightLink()).isFalse();
