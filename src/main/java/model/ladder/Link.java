@@ -1,4 +1,8 @@
-package model.ramdomlinkable;
+package model.ladder;
+
+import model.randomlinkStrategy.LinkStrategy;
+
+import java.util.Objects;
 
 public class Link {
 
@@ -34,5 +38,34 @@ public class Link {
             return 1;
         }
         return 0;
+    }
+
+    public boolean getLeft() {
+        return left;
+    }
+
+    public boolean getRight() {
+        return right;
+    }
+
+    public Link nextLink(final LinkStrategy linkStrategy) {
+        boolean leftOfNextLink = this.getRight();
+        if (leftOfNextLink) {
+            return new Link(true, false);
+        }
+        return new Link(false, linkStrategy.generateLinkable());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Link link = (Link) o;
+        return left == link.left && right == link.right;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(left, right);
     }
 }
