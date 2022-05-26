@@ -4,10 +4,13 @@ import model.randomlinkstrategy.LinkStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Line {
+
+    private static final int SIZE_OF_FIRST_AND_LAST = 2;
 
     private final List<Point> points;
 
@@ -19,8 +22,9 @@ public class Line {
     }
 
     private List<Point> createMiddlePoints(final int countOfPlayer, final LinkStrategy linkStrategy, final Point firstPoint) {
+        int middleWidth = countOfPlayer - SIZE_OF_FIRST_AND_LAST;
         return Stream.generate(() -> firstPoint.nextPoint(linkStrategy))
-                .limit(countOfPlayer - 2)
+                .limit(middleWidth)
                 .collect(Collectors.toUnmodifiableList());
     }
 
@@ -44,11 +48,24 @@ public class Line {
         return this.points.get(pointIndex).move();
     }
 
-    public List<Boolean> getPointsLinkStatus(){
+    public List<Boolean> getPointsLinkStatus() {
         int ladderWidth = points.size() - 1;
         return points.stream()
                 .map(Point::hasRightLink)
                 .limit(ladderWidth)
                 .collect(Collectors.toUnmodifiableList());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(points, line.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }
