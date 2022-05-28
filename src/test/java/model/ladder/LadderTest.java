@@ -8,9 +8,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class LinesTest {
+class LadderTest {
 
-    private Lines lines;
+    private Ladder ladder;
 
     @BeforeEach
     void setUp() {
@@ -28,7 +28,7 @@ class LinesTest {
                         new Point(3, new Link(false, false)))
                 )
         );
-        lines = new Lines(input);
+        ladder = new Ladder(input);
     }
 
     @Test
@@ -50,7 +50,7 @@ class LinesTest {
         );
 
         //when
-        List<Line> actual = lines.getLines();
+        List<Line> actual = ladder.getLines();
 
         //then
         assertThat(actual).isEqualTo(expect);
@@ -66,7 +66,7 @@ class LinesTest {
         );
 
         //when
-        List<List<Boolean>> actual = lines.getAllLineLinkStatus();
+        List<List<Boolean>> actual = ladder.getAllLineLinkStatus();
 
         //then
         assertThat(actual).isEqualTo(expect);
@@ -79,7 +79,7 @@ class LinesTest {
         int expect = 2;
 
         //when
-        int actual = lines.getSize();
+        int actual = ladder.getSize();
 
         //then
         assertThat(actual).isEqualTo(expect);

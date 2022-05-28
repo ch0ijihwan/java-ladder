@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Lines {
+public class Ladder {
 
     private final List<Line> lines;
 
-    public Lines(final List<Line> lines) {
+    public Ladder(final List<Line> lines) {
         this.lines = lines;
     }
 
