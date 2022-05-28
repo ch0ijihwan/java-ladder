@@ -1,13 +1,16 @@
 package model.randomlinkstrategy;
 
 import model.ladder.Link;
-import model.util.RandomUtil;
+
+import java.util.Random;
 
 public class RandomLinkStrategy implements LinkStrategy {
 
+    private static final Random RANDOM = new Random();
+
     @Override
     public boolean generateLinkable() {
-        return RandomUtil.value();
+        return RANDOM.nextBoolean();
     }
 
     @Override
