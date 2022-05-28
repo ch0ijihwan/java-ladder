@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class PlayerNamesTest {
 
@@ -36,5 +37,27 @@ class PlayerNamesTest {
 
         //then
         assertThat(actual).isEqualTo(expect);
+    }
+
+    @Test
+    @DisplayName("사다리타기 게임을 하려면 플레이어 수는 최소 2명이어야 합니다.")
+    void validateCountOfPlayer() {
+        //given
+        List<String> input = List.of("apple");
+
+        //then
+        assertThatIllegalArgumentException().isThrownBy(() -> new PlayerNames(input))
+                .withMessage("사다리타기 게임을 하려면 플레이어 수는 쵯고 2명이어야 합니다.");
+    }
+
+    @Test
+    @DisplayName("플레이어중 중복된 이름이 있는 플레이어가 있으면 예외처리한다.")
+    void validateDuplication() {
+        //given
+        List<String> input = List.of("apple", "apple");
+
+        //then
+        assertThatIllegalArgumentException().isThrownBy(() -> new PlayerNames(input))
+                .withMessage("중복된 이름을 가지고 있는 플레이어가 있습니다.");
     }
 }
