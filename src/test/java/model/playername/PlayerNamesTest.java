@@ -1,5 +1,6 @@
-package model.ladder;
+package model.playername;
 
+import model.playername.PlayerNames;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

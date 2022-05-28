@@ -1,4 +1,4 @@
-package model.ladder;
+package model.playername;
 
 import java.util.List;
 import java.util.Objects;
