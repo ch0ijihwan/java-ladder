@@ -13,6 +13,7 @@ public class ConsoleInput implements  Input{
 
     @Override
     public List<String> inputNames() {
+        System.out.printf("참여할 사람 이름을 입력하세요. (이름은 쉼표(%s)로 구문하세요)%n", NAME_DELIMITER);
         return Arrays.stream(inputSplitNames())
                 .collect(Collectors.toUnmodifiableList());
     }
@@ -24,6 +25,7 @@ public class ConsoleInput implements  Input{
 
     @Override
     public int inputLadderHeight() {
+        System.out.println("최대 사다리 높이는 몇 개인가요?");
         return SCANNER.nextInt();
     }
 }
