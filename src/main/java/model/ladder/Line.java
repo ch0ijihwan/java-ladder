@@ -45,7 +45,9 @@ public class Line {
     }
 
     public int move(final int pointIndex) {
-        return this.points.get(pointIndex).move();
+        return this.points
+                .get(pointIndex)
+                .move();
     }
 
     public List<Boolean> getLinkStatusOfAllPoint() {
