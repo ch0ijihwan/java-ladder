@@ -14,7 +14,7 @@ public class Line {
 
     private final List<Point> points;
 
-    Line(final int countOfPlayer, final LinkStrategy linkStrategy) {
+    public Line(final int countOfPlayer, final LinkStrategy linkStrategy) {
         Point firstPoint = Point.createFirst(linkStrategy);
         List<Point> middlePoints = createMiddlePoints(countOfPlayer, linkStrategy, firstPoint);
         Point lastPoint = Point.createLast(countOfPlayer, linkStrategy);
