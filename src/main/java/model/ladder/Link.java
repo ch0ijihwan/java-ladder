@@ -39,10 +39,6 @@ public class Link {
         return 0;
     }
 
-    public boolean getLeft() {
-        return left;
-    }
-
     public boolean getRight() {
         return right;
     }

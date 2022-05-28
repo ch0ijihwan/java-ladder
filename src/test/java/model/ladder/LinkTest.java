@@ -86,24 +86,6 @@ class LinkTest {
     }
 
     @ParameterizedTest
-    @DisplayName("왼쪽 연결 상태를 반환한다.")
-    @MethodSource("createLeftParameterProvider")
-    void getLeft(final Link link, final boolean expect) {
-        //when
-        boolean actual = link.getLeft();
-
-        //then
-        assertThat(actual).isEqualTo(expect);
-    }
-
-    static Stream<Arguments> createLeftParameterProvider() {
-        return Stream.of(
-                Arguments.of(new Link(true, false), true),
-                Arguments.of(new Link(false, true), false)
-        );
-    }
-
-    @ParameterizedTest
     @DisplayName("오른쪽 연결 상태를 반환한다.")
     @MethodSource("createRightParameterProvider")
     void getRight(final Link link, final boolean expect) {

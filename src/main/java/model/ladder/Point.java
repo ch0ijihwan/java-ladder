@@ -33,10 +33,6 @@ public class Point {
         return link.getRight();
     }
 
-    public boolean hasLeftLink() {
-        return link.getLeft();
-    }
-
     public int move() {
         return index + link.move();
     }

@@ -56,20 +56,6 @@ class PointTest {
     }
 
     @Test
-    @DisplayName("왼쪽 Link 상태 반환")
-    void hasLeftLink() {
-        //given
-        Link input = new Link(true, false);
-        Point point = new Point(0, input);
-
-        //when
-        boolean actual = point.hasLeftLink();
-
-        //then
-        assertThat(actual).isTrue();
-    }
-
-    @Test
     @DisplayName("오른쪽 Link 상태를 반환")
     void hasRightLink() {
         //given
@@ -86,11 +72,15 @@ class PointTest {
     @Test
     @DisplayName("첫번째 좌표 생성")
     void createFirstPoint() {
+        //given
+        Link expect = new Link(false, true);
+
         //when
         Point actual = Point.createFirst(linkStrategy);
 
         //then
-        assertThat(actual.hasLeftLink()).isFalse();
+        assertThat(actual).extracting("link")
+                .isEqualTo(expect);
     }
 
     @Test
@@ -99,6 +89,7 @@ class PointTest {
         //given
         int countOfPlayer = 4;
         int lastIndex = 3;
+
         //when
         Point actual = Point.createLast(countOfPlayer, linkStrategy);
 
