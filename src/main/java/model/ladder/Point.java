@@ -6,9 +6,11 @@ import java.util.Objects;
 
 public class Point {
 
+    private static final int FIRST_INDEX = 0;
+    private static final int NEXT_INCREMENT_OF_INDEX = 1;
+
     private final int index;
     private final Link link;
-
 
     public Point(final int index, final Link link) {
         this.index = index;
@@ -16,7 +18,7 @@ public class Point {
     }
 
     public static Point createFirst(final LinkStrategy linkStrategy) {
-        return new Point(0, linkStrategy.generateFirstPositionLink());
+        return new Point(FIRST_INDEX, linkStrategy.generateFirstPositionLink());
     }
 
     public static Point createLast(final int countOfPlayer, final LinkStrategy linkStrategy) {
@@ -24,7 +26,7 @@ public class Point {
     }
 
     public Point nextPoint(final LinkStrategy linkStrategy) {
-        return new Point(index + 1, link.nextLink(linkStrategy));
+        return new Point(index + NEXT_INCREMENT_OF_INDEX, link.nextLink(linkStrategy));
     }
 
     public boolean hasRightLink() {
