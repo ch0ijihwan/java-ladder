@@ -14,13 +14,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class PointTest {
 
+    static class testLinkStrategy implements LinkStrategy {
+
+        @Override
+        public boolean generateLinkable() {
+            return true;
+        }
+
+        @Override
+        public Link generateFirstPositionLink() {
+            return new Link(false, generateLinkable());
+        }
+
+        @Override
+        public Link generateLastPositionLink() {
+            return new Link(generateLinkable(), false);
+        }
+    }
+
     private final LinkStrategy linkStrategy = new RandomLinkStrategy();
 
     @ParameterizedTest
     @MethodSource("createLinkParameterProvider")
     @DisplayName("Point 가 갖고 있는 연결 만큼 이동한 후  index 를 반환한다.")
     void move(final Link link, final int expectMovement) {
-
         //given
         int index = 3;
         Point point = new Point(index, link);
@@ -76,7 +93,7 @@ class PointTest {
         Link expect = new Link(false, true);
 
         //when
-        Point actual = Point.createFirst(linkStrategy);
+        Point actual = Point.createFirst(new testLinkStrategy());
 
         //then
         assertThat(actual).extracting("link")
