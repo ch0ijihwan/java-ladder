@@ -48,7 +48,7 @@ public class Line {
         return this.points.get(pointIndex).move();
     }
 
-    public List<Boolean> getPointsLinkStatus() {
+    public List<Boolean> getLinkStatusOfAllPoint() {
         int ladderWidth = points.size() - 1;
         return points.stream()
                 .map(Point::hasRightLink)

@@ -28,7 +28,7 @@ public class LadderGameController {
         LadderHeight ladderHeight = new LadderHeight(input.inputLadderHeight());
         LinkStrategy linkStrategy = new RandomLinkStrategy();
         Ladder ladder = new Ladder(createLines(playerNames.countPlayers(), ladderHeight, linkStrategy));
-        display.displayLadderResult(playerNames.getNames(), ladder.getAllLineLinkStatus());
+        display.displayLadderResult(playerNames.getNames(), ladder.getRightLinkStatusOfAllLine());
     }
 
     private List<Line> createLines(final int countOfPlayers, final LadderHeight ladderHeight, final LinkStrategy linkStrategy) {

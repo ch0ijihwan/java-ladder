@@ -66,7 +66,7 @@ class LadderTest {
         );
 
         //when
-        List<List<Boolean>> actual = ladder.getAllLineLinkStatus();
+        List<List<Boolean>> actual = ladder.getRightLinkStatusOfAllLine();
 
         //then
         assertThat(actual).isEqualTo(expect);

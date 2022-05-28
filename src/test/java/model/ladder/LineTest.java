@@ -58,7 +58,7 @@ class LineTest {
         List<Boolean> expect = List.of(true, false);
 
         //when
-        List<Boolean> actual = line.getPointsLinkStatus();
+        List<Boolean> actual = line.getLinkStatusOfAllPoint();
 
         //then
         assertThat(actual).isEqualTo(expect);

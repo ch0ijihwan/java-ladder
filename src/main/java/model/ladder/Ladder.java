@@ -16,9 +16,9 @@ public class Ladder {
         return new ArrayList<>(lines);
     }
 
-    public List<List<Boolean>> getAllLineLinkStatus() {
+    public List<List<Boolean>> getRightLinkStatusOfAllLine() {
         return lines.stream()
-                .map(Line::getPointsLinkStatus)
+                .map(Line::getLinkStatusOfAllPoint)
                 .collect(Collectors.toUnmodifiableList());
     }
 
