@@ -1,6 +1,5 @@
 package model.playername;
 
-import model.playername.PlayerNames;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,17 +8,17 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-class PlayerNamesTest {
+class PlayersTest {
 
     @Test
     @DisplayName("플레이어들의 이름을 반환한다.")
     void getNames() {
         //given
         List<String> input = List.of("apple", "hello", "watch");
-        PlayerNames playerNames = new PlayerNames(input);
+        Players players = new Players(input);
 
         //when
-        List<String> actual = playerNames.getNames();
+        List<String> actual = players.getNames();
 
         //then
         assertThat(actual).isEqualTo(input);
@@ -30,11 +29,11 @@ class PlayerNamesTest {
     void countPlayers() {
         //given
         List<String> input = List.of("apple", "hello", "watch");
-        PlayerNames playerNames = new PlayerNames(input);
+        Players players = new Players(input);
         int expect = 3;
 
         //when
-        int actual = playerNames.countPlayers();
+        int actual = players.countPlayers();
 
         //then
         assertThat(actual).isEqualTo(expect);
@@ -47,7 +46,7 @@ class PlayerNamesTest {
         List<String> input = List.of("apple");
 
         //then
-        assertThatIllegalArgumentException().isThrownBy(() -> new PlayerNames(input))
+        assertThatIllegalArgumentException().isThrownBy(() -> new Players(input))
                 .withMessage("사다리타기 게임을 하려면 플레이어 수는 쵯고 2명이어야 합니다.");
     }
 
@@ -58,7 +57,7 @@ class PlayerNamesTest {
         List<String> input = List.of("apple", "apple");
 
         //then
-        assertThatIllegalArgumentException().isThrownBy(() -> new PlayerNames(input))
+        assertThatIllegalArgumentException().isThrownBy(() -> new Players(input))
                 .withMessage("중복된 이름을 가지고 있는 플레이어가 있습니다.");
     }
 }

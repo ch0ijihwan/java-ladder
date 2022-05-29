@@ -3,7 +3,7 @@ package controller;
 import model.ladder.LadderHeight;
 import model.ladder.Line;
 import model.ladder.Ladder;
-import model.playername.PlayerNames;
+import model.playername.Players;
 import model.randomlinkstrategy.LinkStrategy;
 import model.randomlinkstrategy.RandomLinkStrategy;
 import view.Input.Input;
@@ -24,11 +24,11 @@ public class LadderGameController {
 
     public void run() {
         List<String> names = input.inputNames();
-        PlayerNames playerNames = new PlayerNames(names);
+        Players players = new Players(names);
         LadderHeight ladderHeight = new LadderHeight(input.inputLadderHeight());
         LinkStrategy linkStrategy = new RandomLinkStrategy();
-        Ladder ladder = new Ladder(createLines(playerNames.countPlayers(), ladderHeight, linkStrategy));
-        display.displayLadderResult(playerNames.getNames(), ladder.getRightLinkStatusOfAllLine());
+        Ladder ladder = new Ladder(createLines(players.countPlayers(), ladderHeight, linkStrategy));
+        display.displayLadderResult(players.getNames(), ladder.getRightLinkStatusOfAllLine());
     }
 
     private List<Line> createLines(final int countOfPlayers, final LadderHeight ladderHeight, final LinkStrategy linkStrategy) {

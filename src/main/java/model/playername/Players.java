@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class PlayerNames {
+public class Players {
 
     private static final int MINIMUM_VALUE_OF_PLAYER_COUNT = 2;
 
     private final List<PlayerName> playerNames;
 
-    public PlayerNames(final List<String> names) {
+    public Players(final List<String> names) {
         validateCountOfPlayer(names);
         validateDuplication(names);
         this.playerNames = names.stream()
@@ -44,7 +44,7 @@ public class PlayerNames {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PlayerNames that = (PlayerNames) o;
+        Players that = (Players) o;
         return Objects.equals(playerNames, that.playerNames);
     }
 
