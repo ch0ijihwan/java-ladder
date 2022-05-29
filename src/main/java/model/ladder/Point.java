@@ -17,7 +17,7 @@ public class Point {
         this.link = link;
     }
 
-    public static Point createFirstPoint(final LinkStrategy linkStrategy) {
+    public static Point createFirst(final LinkStrategy linkStrategy) {
         return new Point(FIRST_INDEX, linkStrategy.generateFirstPositionLink());
     }
 
