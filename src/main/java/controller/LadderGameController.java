@@ -3,7 +3,7 @@ package controller;
 import model.ladder.LadderHeight;
 import model.ladder.Line;
 import model.ladder.Ladder;
-import model.playername.Players;
+import model.player.Players;
 import model.randomlinkstrategy.LinkStrategy;
 import model.randomlinkstrategy.RandomLinkStrategy;
 import view.Input.Input;

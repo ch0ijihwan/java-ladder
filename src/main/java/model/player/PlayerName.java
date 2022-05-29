@@ -1,4 +1,4 @@
-package model.playername;
+package model.player;
 
 import java.util.Objects;
 
