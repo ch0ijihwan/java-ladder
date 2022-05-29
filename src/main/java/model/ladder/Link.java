@@ -21,12 +21,24 @@ public class Link {
         }
     }
 
-    public static Link getFirstPositionLink(final LinkStrategy linkStrategy) {
+    public static Link generateFirstPositionLink(final LinkStrategy linkStrategy) {
         return linkStrategy.generateFirstPositionLink();
     }
 
-    public static Link getLastPositionLink(final LinkStrategy linkStrategy) {
+    public static Link generateLastPositionLink(final LinkStrategy linkStrategy) {
         return linkStrategy.generateLastPositionLink();
+    }
+
+    public boolean getRight() {
+        return right;
+    }
+
+    public Link generateNextLink(final LinkStrategy linkStrategy) {
+        boolean leftOfNextLink = this.getRight();
+        if (leftOfNextLink) {
+            return new Link(true, false);
+        }
+        return new Link(false, linkStrategy.generateLinkable());
     }
 
     public int move() {
@@ -37,18 +49,6 @@ public class Link {
             return 1;
         }
         return 0;
-    }
-
-    public boolean getRight() {
-        return right;
-    }
-
-    public Link nextLink(final LinkStrategy linkStrategy) {
-        boolean leftOfNextLink = this.getRight();
-        if (leftOfNextLink) {
-            return new Link(true, false);
-        }
-        return new Link(false, linkStrategy.generateLinkable());
     }
 
     @Override

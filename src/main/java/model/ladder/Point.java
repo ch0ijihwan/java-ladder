@@ -17,16 +17,17 @@ public class Point {
         this.link = link;
     }
 
-    public static Point createFirst(final LinkStrategy linkStrategy) {
+    public static Point createFirstPoint(final LinkStrategy linkStrategy) {
         return new Point(FIRST_INDEX, linkStrategy.generateFirstPositionLink());
     }
 
     public static Point createLast(final int countOfPlayer, final LinkStrategy linkStrategy) {
-        return new Point(countOfPlayer - 1, linkStrategy.generateLastPositionLink());
+        int lastIndex = countOfPlayer - 1;
+        return new Point(lastIndex, linkStrategy.generateLastPositionLink());
     }
 
     public Point nextPoint(final LinkStrategy linkStrategy) {
-        return new Point(index + NEXT_INCREMENT_OF_INDEX, link.nextLink(linkStrategy));
+        return new Point(index + NEXT_INCREMENT_OF_INDEX, link.generateNextLink(linkStrategy));
     }
 
     public boolean hasRightLink() {

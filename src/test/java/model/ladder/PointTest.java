@@ -93,7 +93,7 @@ class PointTest {
         Link expect = new Link(false, true);
 
         //when
-        Point actual = Point.createFirst(new testLinkStrategy());
+        Point actual = Point.createFirstPoint(new testLinkStrategy());
 
         //then
         assertThat(actual).extracting("link")

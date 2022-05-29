@@ -51,7 +51,7 @@ class LinkTest {
     void getFirstPositionLink() {
 
         //when
-        Link actual = Link.getFirstPositionLink(testLinkableStrategy);
+        Link actual = Link.generateFirstPositionLink(testLinkableStrategy);
 
         //then
         assertThat(actual).hasFieldOrPropertyWithValue("left", false);
@@ -61,7 +61,7 @@ class LinkTest {
     @DisplayName("마지막 위치의 Link 의 오른쪽은 false 이어야한다.")
     void getLastPositionLink() {
         //when
-        Link actual = Link.getLastPositionLink(testLinkableStrategy);
+        Link actual = Link.generateLastPositionLink(testLinkableStrategy);
 
         //then
         assertThat(actual).hasFieldOrPropertyWithValue("right", false);
@@ -72,7 +72,7 @@ class LinkTest {
     @DisplayName("기존의 Link 객체를 기반으로 다음 순서에 올 Link 객체를 반환한다.")
     void nextLink(final Link link, final Link expect) {
         //when
-        Link actual = link.nextLink(testLinkableStrategy);
+        Link actual = link.generateNextLink(testLinkableStrategy);
 
         //then
         assertThat(actual).isEqualTo(expect);
