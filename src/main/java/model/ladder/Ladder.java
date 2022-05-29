@@ -21,8 +21,4 @@ public class Ladder {
                 .map(Line::getLinkStatusOfAllPoint)
                 .collect(Collectors.toUnmodifiableList());
     }
-
-    public int getSize() {
-        return lines.size();
-    }
 }

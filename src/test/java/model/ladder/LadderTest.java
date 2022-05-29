@@ -71,17 +71,4 @@ class LadderTest {
         //then
         assertThat(actual).isEqualTo(expect);
     }
-
-    @Test
-    @DisplayName("라인들의 사이즈를 반환한다.")
-    void getSize() {
-        //given
-        int expect = 2;
-
-        //when
-        int actual = ladder.getSize();
-
-        //then
-        assertThat(actual).isEqualTo(expect);
-    }
 }
