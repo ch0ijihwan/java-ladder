@@ -32,7 +32,7 @@ public class LadderGameController {
     }
 
     private List<Line> createLines(final int countOfPlayers, final LadderHeight ladderHeight, final LinkStrategy linkStrategy) {
-        return Stream.generate(() -> new Line((countOfPlayers), linkStrategy))
+        return Stream.generate(() -> new Line(countOfPlayers))
                 .limit(ladderHeight.getValue())
                 .collect(Collectors.toUnmodifiableList());
     }

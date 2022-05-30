@@ -1,7 +1,5 @@
 package model.ladder;
 
-import model.randomlinkstrategy.LinkStrategy;
-import model.randomlinkstrategy.RandomLinkStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +8,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class LineTest {
-
-    private final LinkStrategy linkStrategy = new RandomLinkStrategy();
 
     @Test
     @DisplayName("points 를 반환한다.")
@@ -31,13 +27,13 @@ class LineTest {
     }
 
     @Test
-    @DisplayName("플레이어수와 연결 전략을 입력 받으면 points 를 생성한다")
+    @DisplayName("플레이어 수를 입력 받으면  points 를 생성한다")
     void createLine() {
         //given
         int countOfPlayer = 4;
-        int expectPointsSize= 4;
+        int expectPointsSize = 4;
         //when
-        Line line = new Line(countOfPlayer, linkStrategy);
+        Line line = new Line(countOfPlayer);
 
         //then
         assertThat(line).extracting("points")
