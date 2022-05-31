@@ -1,11 +1,10 @@
 package controller;
 
+import model.ladder.Ladder;
 import model.ladder.LadderHeight;
 import model.ladder.Line;
-import model.ladder.Ladder;
+import model.ladder.LineFactory;
 import model.player.Players;
-import model.randomlinkstrategy.LinkStrategy;
-import model.randomlinkstrategy.RandomLinkStrategy;
 import view.Input.Input;
 import view.display.Display;
 
@@ -26,13 +25,12 @@ public class LadderGameController {
         List<String> names = input.inputNames();
         Players players = new Players(names);
         LadderHeight ladderHeight = new LadderHeight(input.inputLadderHeight());
-        LinkStrategy linkStrategy = new RandomLinkStrategy();
-        Ladder ladder = new Ladder(createLines(players.countPlayers(), ladderHeight, linkStrategy));
+        Ladder ladder = new Ladder(createLines(players.countPlayers(), ladderHeight));
         display.displayLadderResult(players.getNames(), ladder.getRightLinkStatusOfAllLine());
     }
 
-    private List<Line> createLines(final int countOfPlayers, final LadderHeight ladderHeight, final LinkStrategy linkStrategy) {
-        return Stream.generate(() -> new Line(countOfPlayers))
+    private List<Line> createLines(final int countOfPlayers, final LadderHeight ladderHeight) {
+        return Stream.generate(() -> LineFactory.createLineWith(countOfPlayers))
                 .limit(ladderHeight.getValue())
                 .collect(Collectors.toUnmodifiableList());
     }

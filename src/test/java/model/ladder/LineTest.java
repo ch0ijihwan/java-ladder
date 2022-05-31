@@ -27,22 +27,6 @@ class LineTest {
     }
 
     @Test
-    @DisplayName("플레이어 수를 입력 받으면  points 를 생성한다")
-    void createLine() {
-        //given
-        int countOfPlayer = 4;
-        int expectPointsSize = 4;
-        //when
-        Line line = new Line(countOfPlayer);
-
-        //then
-        assertThat(line).extracting("points")
-                .asList()
-                .size()
-                .isEqualTo(expectPointsSize);
-    }
-
-    @Test
     @DisplayName("Line 내의 좌표들의 연결 상태를 반환한다.")
     void getPointsLinkStatus() {
         //given

@@ -1,42 +1,13 @@
 package model.ladder;
 
-import model.randomlinkstrategy.LinkStrategy;
-import model.randomlinkstrategy.RandomLinkStrategy;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Line {
 
-    private static final int SIZE_OF_FIRST_AND_LAST = 2;
-
     private final List<Point> points;
-    private final LinkStrategy linkStrategy = new RandomLinkStrategy();
-
-    public Line(final int countOfPlayer) {
-        Point firstPoint = Point.createFirst(linkStrategy);
-        List<Point> middlePoints = createMiddlePoints(countOfPlayer, firstPoint);
-        Point lastPoint = Point.createLast(countOfPlayer, linkStrategy);
-        this.points = combine(firstPoint, middlePoints, lastPoint);
-    }
-
-    private List<Point> createMiddlePoints(final int countOfPlayer, final Point firstPoint) {
-        int middleWidth = countOfPlayer - SIZE_OF_FIRST_AND_LAST;
-        return Stream.generate(() -> firstPoint.nextPoint(linkStrategy))
-                .limit(middleWidth)
-                .collect(Collectors.toUnmodifiableList());
-    }
-
-    private List<Point> combine(final Point firstPoint, final List<Point> middlePoints, final Point lastPoint) {
-        List<Point> points = new ArrayList<>();
-        points.add(firstPoint);
-        points.addAll(middlePoints);
-        points.add(lastPoint);
-        return points;
-    }
 
     public Line(final List<Point> points) {
         this.points = new ArrayList<>(points);
