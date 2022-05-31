@@ -35,10 +35,10 @@ public class LineFactory {
         return middlePoints;
     }
 
-    private static List<Point> combine(final List<Point> points, final List<Point> points2) {
+    private static List<Point> combine(final List<Point> points, final List<Point> pointsToMerged) {
         List<Point> joinedPoints = new ArrayList<>();
         joinedPoints.addAll(points);
-        joinedPoints.addAll(points2);
+        joinedPoints.addAll(pointsToMerged);
         return joinedPoints;
     }
 
