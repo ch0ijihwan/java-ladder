@@ -28,7 +28,7 @@ class LineFactoryTest {
     @DisplayName("라인 중 연결이 연속으로 이어져있으면 안된다. [true 가 2개 이상 연결 되어 있으면 안된다.]")
     void validateLinkOverlap() {
         //given
-        int inputSize = 2000;
+        int inputSize = 1000;
         Line line = LineFactory.createLineWith(inputSize);
         List<Boolean> linkStatusOfAllPoint = line.getLinkStatusOfAllPoint();
         String expect = "true,true";
@@ -39,7 +39,6 @@ class LineFactoryTest {
                 .collect(Collectors.joining(","));
 
         //then
-        System.out.println(combinedLinkStatus);
         assertThat(combinedLinkStatus)
                 .doesNotContain(expect);
     }
