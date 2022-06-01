@@ -18,13 +18,13 @@ public class LineFactory {
 
     private static List<Point> createPoints(final int countOfPlayer) {
         Point firstPoint = Point.createFirst(LINK_STRATEGY);
-        List<Point> middlePoints = createMiddlePoint(countOfPlayer, firstPoint);
+        List<Point> middlePoints = createMiddlePoint1(countOfPlayer, firstPoint);
         Point lastPoint = Point.createLast(countOfPlayer, LINK_STRATEGY);
         List<Point> firstAndMiddlePoints = combine(List.of(firstPoint), middlePoints);
         return combine(firstAndMiddlePoints, List.of(lastPoint));
     }
 
-    private static List<Point> createMiddlePoint(final int countOfPlayer, final Point firstPoint) {
+    private static List<Point> createMiddlePoint1(final int countOfPlayer, final Point firstPoint) {
         int middleWidth = countOfPlayer - SIZE_OF_FIRST_AND_LAST;
         Point prePoint = firstPoint;
         List<Point> middlePoints = new ArrayList<>();
@@ -35,10 +35,10 @@ public class LineFactory {
         return middlePoints;
     }
 
-    private static List<Point> combine(final List<Point> points, final List<Point> pointsToMerged) {
+    private static List<Point> combine(final List<Point> points, final List<Point> points2) {
         List<Point> joinedPoints = new ArrayList<>();
         joinedPoints.addAll(points);
-        joinedPoints.addAll(pointsToMerged);
+        joinedPoints.addAll(points2);
         return joinedPoints;
     }
 
