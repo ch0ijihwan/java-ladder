@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LadderGameController {
+
     private final Input input;
     private final Display display;
 
