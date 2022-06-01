@@ -32,12 +32,17 @@ public class Players {
 
     public List<String> getNames() {
         return playerNames.stream()
-                .map(PlayerName::getName)
+                .map(PlayerName::getValue)
                 .collect(Collectors.toUnmodifiableList());
     }
 
     public int countPlayers() {
         return playerNames.size();
+    }
+
+    public String get(final int index) {
+        return playerNames.get(index)
+                .getValue();
     }
 
     @Override

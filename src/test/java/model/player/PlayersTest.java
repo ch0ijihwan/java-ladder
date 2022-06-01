@@ -60,4 +60,20 @@ class PlayersTest {
         assertThatIllegalArgumentException().isThrownBy(() -> new Players(input))
                 .withMessage("중복된 이름을 가지고 있는 플레이어가 있습니다.");
     }
+
+    @Test
+    @DisplayName("해당 인덱스에 있는 플레이어의 이름을 반환한다.")
+    void get() {
+        //given
+        List<String> inputNames = List.of("apple", "hello", "hi");
+        int input = 2;
+        Players players = new Players(inputNames);
+        String expect = "hi";
+
+        //when
+        String actual = players.get(input);
+
+        //then
+        assertThat(actual).isEqualTo(expect);
+    }
 }
