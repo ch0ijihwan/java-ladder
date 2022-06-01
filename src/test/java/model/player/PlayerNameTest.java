@@ -28,7 +28,7 @@ class PlayerNameTest {
         String expect = "apple";
 
         //when
-        String actual = playerName.getName();
+        String actual = playerName.getValue();
 
         //then
         assertThat(actual).isEqualTo(expect);
