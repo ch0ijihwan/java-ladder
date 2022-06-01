@@ -37,4 +37,21 @@ class RewardsTest {
         assertThat(actual).hasSize(countOfPlayers);
 
     }
+
+    @Test
+    @DisplayName("입력 받은 인덱스 위치에 있는 상금을 반환한다.")
+    void get() {
+        //given
+        int countOfPlayers = 4;
+        List<String> inputRewards = List.of("1000", "2000,", "꽝", "3000");
+        Rewards rewards = new Rewards(countOfPlayers, inputRewards);
+        int input = 0;
+        String expect = "1000";
+
+        //when
+        String actual = rewards.get(input);
+
+        //then
+        assertThat(actual).isEqualTo(expect);
+    }
 }
