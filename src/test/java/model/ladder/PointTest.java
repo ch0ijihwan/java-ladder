@@ -50,7 +50,7 @@ class PointTest {
         assertThat(actual).isEqualTo(expectIndex);
     }
 
-    static Stream<Arguments> createLinkParameterProvider() {
+    private static Stream<Arguments> createLinkParameterProvider() {
         return Stream.of(
                 Arguments.of(new Link(true, false), -1),
                 Arguments.of(new Link(false, true), 1),

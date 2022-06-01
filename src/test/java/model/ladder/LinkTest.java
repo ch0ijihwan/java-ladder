@@ -78,7 +78,7 @@ class LinkTest {
         assertThat(actual).isEqualTo(expect);
     }
 
-    static Stream<Arguments> createLinkAndNextLinkParameterProvider() {
+    private static Stream<Arguments> createLinkAndNextLinkParameterProvider() {
         return Stream.of(
                 Arguments.of(new Link(true, false), new Link(false, true)),
                 Arguments.of(new Link(false, true), new Link((true), false))
@@ -96,7 +96,7 @@ class LinkTest {
         assertThat(actual).isEqualTo(expect);
     }
 
-    static Stream<Arguments> createRightParameterProvider() {
+    private static Stream<Arguments> createRightParameterProvider() {
         return Stream.of(
                 Arguments.of(new Link(true, false), false),
                 Arguments.of(new Link(false, true), true)
@@ -118,7 +118,7 @@ class LinkTest {
         assertThat(actual).isEqualTo(expect);
     }
 
-    static Stream<Arguments> createLinkParameterProvider() {
+    private static Stream<Arguments> createLinkParameterProvider() {
         return Stream.of(
                 Arguments.of(true, false, -1),
                 Arguments.of(false, true, 1),
