@@ -1,12 +1,16 @@
 package model.ladder;
 
+import model.player.Players;
+import model.result.Rewards;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class LadderTest {
 
@@ -70,5 +74,24 @@ class LadderTest {
 
         //then
         assertThat(actual).isEqualTo(expect);
+    }
+
+    @Test
+    @DisplayName("플레이어의 이름들과 상금들을 받아 사다리 타기를 실행 한 결과를 반환한다.")
+    void match() {
+        //given
+        Players players = new Players(List.of("a", "b", "c", "d"));
+        Rewards rewards = new Rewards(4, List.of("1000", "2000", "3000", "꽝"));
+
+        //when
+        Map<String, String> actual = ladder.match(players, rewards);
+
+        //then
+        assertAll(
+                () -> assertThat(actual).containsEntry("a", "3000"),
+                () -> assertThat(actual).containsEntry("b", "1000"),
+                () -> assertThat(actual).containsEntry("c", "꽝"),
+                () -> assertThat(actual).containsEntry("d", "2000")
+        );
     }
 }

@@ -1,8 +1,14 @@
 package model.ladder;
 
+import model.player.Players;
+import model.result.Rewards;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Ladder {
 
@@ -20,5 +26,20 @@ public class Ladder {
         return lines.stream()
                 .map(Line::getLinkStatusOfAllPoint)
                 .collect(Collectors.toUnmodifiableList());
+    }
+
+    public Map<String, String> match(final Players players, final Rewards rewards) {
+        Map<String, String> result = new HashMap<>();
+        IntStream.range(0, players.countPlayers())
+                .forEach(index -> result.put(players.get(index), rewards.get(findLastBottomIndex(index))));
+        return result;
+    }
+
+    private int findLastBottomIndex(final int pointIndex) {
+        int currentIndex = pointIndex;
+        for (Line line : lines) {
+            currentIndex = line.move(currentIndex);
+        }
+        return currentIndex;
     }
 }
