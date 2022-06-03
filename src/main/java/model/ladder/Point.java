@@ -22,7 +22,7 @@ public class Point {
     }
 
     public static Point createLast(final Point prePoint, final LinkStrategy linkStrategy) {
-        int lastIndex = prePoint.index + 1;
+        int lastIndex = prePoint.index + NEXT_INCREMENT_OF_INDEX;
         return new Point(lastIndex, linkStrategy.generateLastPositionLink(prePoint.link));
     }
 
