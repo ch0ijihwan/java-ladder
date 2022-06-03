@@ -31,7 +31,7 @@ class RewardsTest {
         Rewards rewards = new Rewards(countOfPlayers, inputRewards);
 
         //when
-        List<Reward> actual = rewards.getRewards();
+        List<String> actual = rewards.getRewards();
 
         //then
         assertThat(actual).hasSize(countOfPlayers);

@@ -1,6 +1,5 @@
 package model.result;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -31,6 +30,12 @@ public class Rewards {
                 .getValue();
     }
 
+    public List<String> getRewards() {
+        return rewards.stream()
+                .map(Reward::getValue)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,9 +47,5 @@ public class Rewards {
     @Override
     public int hashCode() {
         return Objects.hash(rewards);
-    }
-
-    public List<Reward> getRewards() {
-        return new ArrayList<>(rewards);
     }
 }
