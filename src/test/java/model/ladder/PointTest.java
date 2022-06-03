@@ -27,9 +27,10 @@ class PointTest {
         }
 
         @Override
-        public Link generateLastPositionLink() {
-            return new Link(generateLinkable(), false);
+        public Link generateLastPositionLink(final Link preLink) {
+            return new Link(preLink.getRight(), false);
         }
+
     }
 
     private final LinkStrategy linkStrategy = new RandomLinkStrategy();
@@ -104,14 +105,15 @@ class PointTest {
     @DisplayName("마지막 좌표 생성")
     void createLastPoint() {
         //given
-        int countOfPlayer = 4;
-        int lastIndex = 3;
+        int lastPointIndex = 4;
+        int prePointIndex = 3;
+        Point prePoint = new Point(prePointIndex, new Link(true, false));
 
         //when
-        Point actual = Point.createLast(countOfPlayer, linkStrategy);
+        Point actual = Point.createLast(prePoint, linkStrategy);
 
         //then
         assertThat(actual.hasRightLink()).isFalse();
-        assertThat(actual).hasFieldOrPropertyWithValue("index", lastIndex);
+        assertThat(actual).hasFieldOrPropertyWithValue("index", lastPointIndex);
     }
 }

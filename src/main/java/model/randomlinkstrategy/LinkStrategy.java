@@ -8,5 +8,5 @@ public interface LinkStrategy {
 
     Link generateFirstPositionLink();
 
-    Link generateLastPositionLink();
+    Link generateLastPositionLink(Link preLink);
 }

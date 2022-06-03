@@ -19,7 +19,8 @@ public class LineFactory {
     private static List<Point> createPoints(final int countOfPlayer) {
         Point firstPoint = Point.createFirst(LINK_STRATEGY);
         List<Point> middlePoints = createMiddlePoint(countOfPlayer, firstPoint);
-        Point lastPoint = Point.createLast(countOfPlayer, LINK_STRATEGY);
+        Point lastPointOfMiddlePoints = middlePoints.get(middlePoints.size() - 1);
+        Point lastPoint = Point.createLast(lastPointOfMiddlePoints, LINK_STRATEGY);
         List<Point> firstAndMiddlePoints = combine(List.of(firstPoint), middlePoints);
         return combine(firstAndMiddlePoints, List.of(lastPoint));
     }

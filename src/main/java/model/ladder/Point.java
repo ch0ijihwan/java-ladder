@@ -21,9 +21,9 @@ public class Point {
         return new Point(FIRST_INDEX, linkStrategy.generateFirstPositionLink());
     }
 
-    public static Point createLast(final int countOfPlayer, final LinkStrategy linkStrategy) {
-        int lastIndex = countOfPlayer - 1;
-        return new Point(lastIndex, linkStrategy.generateLastPositionLink());
+    public static Point createLast(final Point prePoint, final LinkStrategy linkStrategy) {
+        int lastIndex = prePoint.index + 1;
+        return new Point(lastIndex, linkStrategy.generateLastPositionLink(prePoint.link));
     }
 
     public Point nextPoint(final LinkStrategy linkStrategy) {

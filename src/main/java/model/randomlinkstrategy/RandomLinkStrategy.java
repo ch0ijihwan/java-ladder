@@ -19,7 +19,7 @@ public class RandomLinkStrategy implements LinkStrategy {
     }
 
     @Override
-    public Link generateLastPositionLink() {
-        return new Link(generateLinkable(), false);
+    public Link generateLastPositionLink(final Link preLink) {
+        return new Link(preLink.getRight(), false);
     }
 }

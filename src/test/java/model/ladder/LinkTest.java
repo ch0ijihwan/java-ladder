@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -27,8 +28,8 @@ class LinkTest {
         }
 
         @Override
-        public Link generateLastPositionLink() {
-            return new Link(generateLinkable(), false);
+        public Link generateLastPositionLink(final Link preLink) {
+            return new Link(preLink.getRight(), false);
         }
     }
 
@@ -57,11 +58,14 @@ class LinkTest {
         assertThat(actual).hasFieldOrPropertyWithValue("left", false);
     }
 
-    @Test
+    @CsvSource(value = {"true", "false"})
     @DisplayName("마지막 위치의 Link 의 오른쪽은 false 이어야한다.")
-    void getLastPositionLink() {
+    void getLastPositionLink(boolean rightOfPreLink) {
+        //given
+        Link preLink = new Link(false, rightOfPreLink);
+
         //when
-        Link actual = Link.generateLastPositionLink(testLinkableStrategy);
+        Link actual = Link.generateLastPositionLink(preLink, testLinkableStrategy);
 
         //then
         assertThat(actual).hasFieldOrPropertyWithValue("right", false);
