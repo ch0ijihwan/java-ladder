@@ -6,6 +6,9 @@ public interface Input {
 
     List<String> inputNames();
 
+    List<String> inputRewards();
+
     int inputLadderHeight();
 
+    String inputTargetPlayerName();
 }
