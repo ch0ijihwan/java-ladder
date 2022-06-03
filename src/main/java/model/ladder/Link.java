@@ -6,6 +6,10 @@ import java.util.Objects;
 
 public class Link {
 
+    private static final int INCREMENT = 1;
+    private static final int DECREMENT = -2;
+    private static final int STAY = 0;
+
     private final boolean left;
     private final boolean right;
 
@@ -43,12 +47,12 @@ public class Link {
 
     public int move() {
         if (left && !right) {
-            return -1;
+            return DECREMENT;
         }
         if (!left && right) {
-            return 1;
+            return INCREMENT;
         }
-        return 0;
+        return STAY;
     }
 
     @Override
