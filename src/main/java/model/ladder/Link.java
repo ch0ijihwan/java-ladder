@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Link {
 
     private static final int INCREMENT = 1;
-    private static final int DECREMENT = -2;
+    private static final int DECREMENT = -1;
     private static final int STAY = 0;
 
     private final boolean left;
