@@ -18,12 +18,12 @@ public class Point {
     }
 
     public static Point createFirst(final LinkStrategy linkStrategy) {
-        return new Point(FIRST_INDEX, linkStrategy.generateFirstPositionLink());
+        return new Point(FIRST_INDEX, Link.generateFirstPositionLink(linkStrategy));
     }
 
-    public static Point createLast(final Point prePoint, final LinkStrategy linkStrategy) {
+    public static Point createLast(final Point prePoint) {
         int lastIndex = prePoint.index + NEXT_INCREMENT_OF_INDEX;
-        return new Point(lastIndex, linkStrategy.generateLastPositionLink(prePoint.link));
+        return new Point(lastIndex, Link.generateLastPositionLink(prePoint.link));
     }
 
     public Point nextPoint(final LinkStrategy linkStrategy) {
