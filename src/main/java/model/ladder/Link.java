@@ -29,8 +29,8 @@ public class Link {
         return linkStrategy.generateFirstPositionLink();
     }
 
-    public static Link generateLastPositionLink(final Link preLink, final LinkStrategy linkStrategy) {
-        return linkStrategy.generateLastPositionLink(preLink);
+    public static Link generateLastPositionLink(final Link preLink){
+        return new Link(preLink.getRight(), false);
     }
 
     public boolean getRight() {

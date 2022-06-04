@@ -7,6 +7,4 @@ public interface LinkStrategy {
     boolean generateLinkable();
 
     Link generateFirstPositionLink();
-
-    Link generateLastPositionLink(Link preLink);
 }

@@ -20,7 +20,7 @@ public class LineFactory {
         Point firstPoint = Point.createFirst(LINK_STRATEGY);
         List<Point> middlePoints = createMiddlePoint(countOfPlayer, firstPoint);
         Point lastPointOfMiddlePoints = middlePoints.get(middlePoints.size() - 1);
-        Point lastPoint = Point.createLast(lastPointOfMiddlePoints, LINK_STRATEGY);
+        Point lastPoint = Point.createLast(lastPointOfMiddlePoints);
         List<Point> firstAndMiddlePoints = combine(List.of(firstPoint), middlePoints);
         return combine(firstAndMiddlePoints, List.of(lastPoint));
     }

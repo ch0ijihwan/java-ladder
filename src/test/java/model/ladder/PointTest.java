@@ -25,12 +25,6 @@ class PointTest {
         public Link generateFirstPositionLink() {
             return new Link(false, generateLinkable());
         }
-
-        @Override
-        public Link generateLastPositionLink(final Link preLink) {
-            return new Link(preLink.getRight(), false);
-        }
-
     }
 
     private final LinkStrategy linkStrategy = new RandomLinkStrategy();
@@ -110,7 +104,7 @@ class PointTest {
         Point prePoint = new Point(prePointIndex, new Link(true, false));
 
         //when
-        Point actual = Point.createLast(prePoint, linkStrategy);
+        Point actual = Point.createLast(prePoint);
 
         //then
         assertThat(actual.hasRightLink()).isFalse();
