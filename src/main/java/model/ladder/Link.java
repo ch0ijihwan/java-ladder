@@ -1,6 +1,6 @@
 package model.ladder;
 
-import model.randomlinkstrategy.LinkStrategy;
+import model.linkablestrategy.LinkableStrategy;
 
 import java.util.Objects;
 
@@ -25,8 +25,8 @@ public class Link {
         }
     }
 
-    public static Link generateFirstPositionLink(final LinkStrategy linkStrategy) {
-        return linkStrategy.generateFirstPositionLink();
+    public static Link generateFirstPositionLink(final LinkableStrategy linkStrategy) {
+        return new Link(false, linkStrategy.generateLinkable());
     }
 
     public static Link generateLastPositionLink(final Link preLink){
@@ -37,7 +37,7 @@ public class Link {
         return right;
     }
 
-    public Link generateNextLink(final LinkStrategy linkStrategy) {
+    public Link generateNextLink(final LinkableStrategy linkStrategy) {
         boolean leftOfNextLink = this.getRight();
         if (leftOfNextLink) {
             return new Link(true, false);

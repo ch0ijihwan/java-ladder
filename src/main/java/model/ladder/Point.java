@@ -1,6 +1,6 @@
 package model.ladder;
 
-import model.randomlinkstrategy.LinkStrategy;
+import model.linkablestrategy.LinkableStrategy;
 
 import java.util.Objects;
 
@@ -17,7 +17,7 @@ public class Point {
         this.link = link;
     }
 
-    public static Point createFirst(final LinkStrategy linkStrategy) {
+    public static Point createFirst(final LinkableStrategy linkStrategy) {
         return new Point(FIRST_INDEX, Link.generateFirstPositionLink(linkStrategy));
     }
 
@@ -26,7 +26,7 @@ public class Point {
         return new Point(lastIndex, Link.generateLastPositionLink(prePoint.link));
     }
 
-    public Point nextPoint(final LinkStrategy linkStrategy) {
+    public Point nextPoint(final LinkableStrategy linkStrategy) {
         return new Point(index + NEXT_INCREMENT_OF_INDEX, link.generateNextLink(linkStrategy));
     }
 

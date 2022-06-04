@@ -1,6 +1,6 @@
 package model.ladder;
 
-import model.randomlinkstrategy.LinkStrategy;
+import model.linkablestrategy.LinkableStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,20 +15,15 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 class LinkTest {
 
-    static class alwaysLinkableStrategy implements LinkStrategy {
+    static class alwaysLinkableStrategy implements LinkableStrategy {
 
         @Override
         public boolean generateLinkable() {
             return true;
         }
-
-        @Override
-        public Link generateFirstPositionLink() {
-            return new Link(false, generateLinkable());
-        }
     }
 
-    private final LinkStrategy testLinkableStrategy = new alwaysLinkableStrategy();
+    private final LinkableStrategy testLinkableStrategy = new alwaysLinkableStrategy();
 
     @Test
     @DisplayName("양쪽다 true 일 경우 예외처리 반환")

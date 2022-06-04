@@ -1,7 +1,7 @@
 package model.ladder;
 
-import model.randomlinkstrategy.LinkStrategy;
-import model.randomlinkstrategy.RandomLinkStrategy;
+import model.linkablestrategy.LinkableStrategy;
+import model.linkablestrategy.RandomLinkableStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,20 +14,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class PointTest {
 
-    static class testLinkStrategy implements LinkStrategy {
+    static class testLinkStrategy implements LinkableStrategy {
 
         @Override
         public boolean generateLinkable() {
             return true;
         }
-
-        @Override
-        public Link generateFirstPositionLink() {
-            return new Link(false, generateLinkable());
-        }
     }
 
-    private final LinkStrategy linkStrategy = new RandomLinkStrategy();
+    private final LinkableStrategy linkStrategy = new RandomLinkableStrategy();
 
     @ParameterizedTest
     @MethodSource("createLinkParameterProvider")

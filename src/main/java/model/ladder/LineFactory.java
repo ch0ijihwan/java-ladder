@@ -1,7 +1,7 @@
 package model.ladder;
 
-import model.randomlinkstrategy.LinkStrategy;
-import model.randomlinkstrategy.RandomLinkStrategy;
+import model.linkablestrategy.LinkableStrategy;
+import model.linkablestrategy.RandomLinkableStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class LineFactory {
 
     private static final int SIZE_OF_FIRST_AND_LAST = 2;
 
-    private static final LinkStrategy LINK_STRATEGY = new RandomLinkStrategy();
+    private static final LinkableStrategy LINK_STRATEGY = new RandomLinkableStrategy();
 
     public static Line createLineWith(final int countOfPlayer) {
         return new Line(createPoints(countOfPlayer));
