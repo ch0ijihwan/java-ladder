@@ -1,7 +1,7 @@
 package model.ladder;
 
-import model.linkablestrategy.LinkableStrategy;
-import model.linkablestrategy.RandomLinkableStrategy;
+import model.ladder.linkablestrategy.LinkableStrategy;
+import model.ladder.linkablestrategy.RandomLinkableStrategy;
 
 import java.util.ArrayList;
 import java.util.List;

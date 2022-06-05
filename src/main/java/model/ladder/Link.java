@@ -1,6 +1,6 @@
 package model.ladder;
 
-import model.linkablestrategy.LinkableStrategy;
+import model.ladder.linkablestrategy.LinkableStrategy;
 
 import java.util.Objects;
 

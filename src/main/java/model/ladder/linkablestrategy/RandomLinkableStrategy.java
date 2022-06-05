@@ -1,4 +1,4 @@
-package model.linkablestrategy;
+package model.ladder.linkablestrategy;
 
 import java.util.Random;
 

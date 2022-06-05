@@ -1,7 +1,7 @@
 package model.ladder;
 
-import model.linkablestrategy.LinkableStrategy;
-import model.linkablestrategy.RandomLinkableStrategy;
+import model.ladder.linkablestrategy.LinkableStrategy;
+import model.ladder.linkablestrategy.RandomLinkableStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
