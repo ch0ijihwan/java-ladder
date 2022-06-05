@@ -26,7 +26,7 @@ public class Line {
     public List<Boolean> getLinkStatusOfAllPoint() {
         int ladderWidth = points.size() - 1;
         return points.stream()
-                .map(Point::hasRightLink)
+                .map(Point::hasRightLinkable)
                 .limit(ladderWidth)
                 .collect(Collectors.toUnmodifiableList());
     }

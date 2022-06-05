@@ -25,12 +25,12 @@ public class LadderGameController {
         Players players = new Players(names);
         Rewards rewards = new Rewards(players.countPlayers(), input.inputRewards());
         LadderHeight ladderHeight = new LadderHeight(input.inputLadderHeight());
-        
+
         Ladder ladder = new Ladder(createLines(players.countPlayers(), ladderHeight));
         display.displayPlayerNames(players.getNames());
         display.displayLadderMap(ladder.getRightLinkStatusOfAllLine());
         display.displayRewards(rewards.getRewards());
-        
+
         LadderGameResult ladderGameResult = new LadderGameResult(ladder.match(players, rewards));
         displayGameResult(ladderGameResult);
     }

@@ -70,7 +70,7 @@ class PointTest {
         Point point = new Point(0, input);
 
         //when
-        boolean actual = point.hasRightLink();
+        boolean actual = point.hasRightLinkable();
 
         //then
         assertThat(actual).isFalse();
@@ -102,7 +102,7 @@ class PointTest {
         Point actual = Point.createLast(prePoint);
 
         //then
-        assertThat(actual.hasRightLink()).isFalse();
+        assertThat(actual.hasRightLinkable()).isFalse();
         assertThat(actual).hasFieldOrPropertyWithValue("index", lastPointIndex);
     }
 }

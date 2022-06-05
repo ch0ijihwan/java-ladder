@@ -30,7 +30,7 @@ public class Point {
         return new Point(index + NEXT_INCREMENT_OF_INDEX, link.generateNextLink(linkStrategy));
     }
 
-    public boolean hasRightLink() {
+    public boolean hasRightLinkable() {
         return link.getRight();
     }
 
