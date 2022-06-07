@@ -1,5 +1,6 @@
 package model.player;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -43,6 +44,10 @@ public class Players {
     public String get(final int index) {
         return playerNames.get(index)
                 .getValue();
+    }
+
+    public List<PlayerName> getPlayers() {
+        return new ArrayList<>(this.playerNames);
     }
 
     @Override
