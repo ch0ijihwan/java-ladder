@@ -48,6 +48,10 @@ class PointTest {
 
         //then
         assertThat(actual).hasFieldOrPropertyWithValue("index", expectIndex);
+        assertThat(actual)
+                .extracting("link")
+                .extracting("left")
+                .isEqualTo(point.hasRightLinkable());
     }
 
     @Test
