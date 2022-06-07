@@ -15,9 +15,6 @@ public class ConsoleDisplay implements Display {
     private static final String BLANK = " ";
     private static final String RESULT_DELIMITER = ":";
     private static final String RESULT_MESSAGE = "실행 결과";
-    private static final String ALL_PLAYERS = "all";
-    private static final String NONE_DELIMITER = "";
-    private static final String LADDER_GAME_RESULT_FORMAT = "%s %s %s %n";
     private static final int MAXIMUM_NAME_SIZE = 5;
     private static final int FIRST_INDEX = 0;
 
@@ -31,7 +28,7 @@ public class ConsoleDisplay implements Display {
         List<String> alignedTokens = tokens.stream()
                 .map(this::addBlank)
                 .collect(Collectors.toUnmodifiableList());
-        System.out.println(String.join(NONE_DELIMITER, alignedTokens));
+        System.out.println(String.join("", alignedTokens));
     }
 
     private String addBlank(String name) {
@@ -69,17 +66,17 @@ public class ConsoleDisplay implements Display {
 
     @Override
     public void displayResult(final LadderGameResult ladderGameResult, final String playerName) {
-        if (playerName.equals(ALL_PLAYERS)) {
+        if (playerName.equals("all")) {
             ladderGameResult.getAllResult()
                     .forEach(this::printResult);
         }
-        if (!playerName.equals(ALL_PLAYERS) && ladderGameResult.containName(playerName)) {
+        if (!playerName.equals("all") && ladderGameResult.containName(playerName)) {
             System.out.println(ladderGameResult.getResult(playerName));
         }
     }
 
     private PrintStream printResult(final Map.Entry<String, String> stringStringEntry) {
-        return System.out.printf(LADDER_GAME_RESULT_FORMAT, stringStringEntry.getKey(), RESULT_DELIMITER, stringStringEntry.getValue());
+        return System.out.printf("%s %s %s %n", stringStringEntry.getKey(), RESULT_DELIMITER, stringStringEntry.getValue());
     }
 }
 
