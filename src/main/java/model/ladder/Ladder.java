@@ -15,10 +15,10 @@ public class Ladder {
     private final List<Line> lines;
 
     public Ladder(final List<Line> lines) {
-        this.lines = lines;
+        this.lines = new ArrayList<>(lines);
     }
 
-    public List<Line> getLines() {
+    public List<Line> getLines(){
         return new ArrayList<>(lines);
     }
 

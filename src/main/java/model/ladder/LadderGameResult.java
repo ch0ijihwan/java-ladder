@@ -1,5 +1,6 @@
 package model.ladder;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -8,7 +9,7 @@ public class LadderGameResult {
     private final Map<String, String> result;
 
     public LadderGameResult(final Map<String, String> result) {
-        this.result = result;
+        this.result = new HashMap<>(result);
     }
 
     public String getResult(final String name) {
