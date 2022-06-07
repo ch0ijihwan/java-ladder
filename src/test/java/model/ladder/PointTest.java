@@ -1,7 +1,5 @@
 package model.ladder;
 
-import model.ladder.linkablestrategy.LinkableStrategy;
-import model.ladder.linkablestrategy.RandomLinkableStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,16 +11,6 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PointTest {
-
-    static class testLinkStrategy implements LinkableStrategy {
-
-        @Override
-        public boolean generateLinkable() {
-            return true;
-        }
-    }
-
-    private final LinkableStrategy linkStrategy = new RandomLinkableStrategy();
 
     @ParameterizedTest
     @MethodSource("createLinkParameterProvider")
@@ -56,7 +44,7 @@ class PointTest {
         int expectIndex = 1;
 
         //when
-        Point actual = point.nextPoint(linkStrategy);
+        Point actual = point.nextPoint();
 
         //then
         assertThat(actual).hasFieldOrPropertyWithValue("index", expectIndex);
@@ -83,7 +71,7 @@ class PointTest {
         Link expect = new Link(false, true);
 
         //when
-        Point actual = Point.createFirst(new testLinkStrategy());
+        Point actual = Point.createFirst();
 
         //then
         assertThat(actual).extracting("link")

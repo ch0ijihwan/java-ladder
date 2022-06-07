@@ -1,6 +1,7 @@
 package model.ladder;
 
 import model.ladder.linkablestrategy.LinkableStrategy;
+import model.ladder.linkablestrategy.RandomLinkableStrategy;
 
 import java.util.Objects;
 
@@ -8,6 +9,7 @@ public class Point {
 
     private static final int FIRST_INDEX = 0;
     private static final int NEXT_INCREMENT_OF_INDEX = 1;
+    private static final LinkableStrategy LINKABLE_STRATEGY = new RandomLinkableStrategy();
 
     private final int index;
     private final Link link;
@@ -17,8 +19,8 @@ public class Point {
         this.link = link;
     }
 
-    public static Point createFirst(final LinkableStrategy linkStrategy) {
-        return new Point(FIRST_INDEX, Link.generateFirstPositionLink(linkStrategy));
+    public static Point createFirst() {
+        return new Point(FIRST_INDEX, Link.generateFirstPositionLink(LINKABLE_STRATEGY));
     }
 
     public static Point createLast(final Point prePoint) {
@@ -26,8 +28,8 @@ public class Point {
         return new Point(lastIndex, Link.generateLastPositionLink(prePoint.link));
     }
 
-    public Point nextPoint(final LinkableStrategy linkStrategy) {
-        return new Point(index + NEXT_INCREMENT_OF_INDEX, link.generateNextLink(linkStrategy));
+    public Point nextPoint() {
+        return new Point(index + NEXT_INCREMENT_OF_INDEX, link.generateNextLink(LINKABLE_STRATEGY));
     }
 
     public boolean hasRightLinkable() {

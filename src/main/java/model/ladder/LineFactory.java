@@ -1,8 +1,5 @@
 package model.ladder;
 
-import model.ladder.linkablestrategy.LinkableStrategy;
-import model.ladder.linkablestrategy.RandomLinkableStrategy;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +7,12 @@ public class LineFactory {
 
     private static final int SIZE_OF_FIRST_AND_LAST = 2;
 
-    private static final LinkableStrategy LINK_STRATEGY = new RandomLinkableStrategy();
-
     public static Line createLineWith(final int countOfPlayer) {
         return new Line(createPoints(countOfPlayer));
     }
 
     private static List<Point> createPoints(final int countOfPlayer) {
-        Point firstPoint = Point.createFirst(LINK_STRATEGY);
+        Point firstPoint = Point.createFirst();
         List<Point> middlePoints = createMiddlePoint(countOfPlayer, firstPoint);
         Point lastPointOfMiddlePoints = middlePoints.get(middlePoints.size() - 1);
         Point lastPoint = Point.createLast(lastPointOfMiddlePoints);
@@ -30,7 +25,7 @@ public class LineFactory {
         Point prePoint = firstPoint;
         List<Point> middlePoints = new ArrayList<>();
         for (int i = 0; i < middleWidth; i++) {
-            prePoint = prePoint.nextPoint(LINK_STRATEGY);
+            prePoint = prePoint.nextPoint();
             middlePoints.add(prePoint);
         }
         return middlePoints;
