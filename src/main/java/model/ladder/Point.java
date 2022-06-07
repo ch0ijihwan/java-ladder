@@ -9,7 +9,8 @@ public class Point {
 
     private static final int FIRST_INDEX = 0;
     private static final int NEXT_INCREMENT_OF_INDEX = 1;
-    private static final LinkableStrategy LINKABLE_STRATEGY = new RandomLinkableStrategy();
+
+    private static final LinkableStrategy linkableStrategy = RandomLinkableStrategy.getInstance();
 
     private final int index;
     private final Link link;
@@ -20,7 +21,7 @@ public class Point {
     }
 
     public static Point createFirst() {
-        return new Point(FIRST_INDEX, Link.generateFirstPositionLink(LINKABLE_STRATEGY));
+        return new Point(FIRST_INDEX, Link.generateFirstPositionLink(linkableStrategy));
     }
 
     public static Point createLast(final Point prePoint) {
@@ -29,7 +30,7 @@ public class Point {
     }
 
     public Point nextPoint() {
-        return new Point(index + NEXT_INCREMENT_OF_INDEX, link.generateNextLink(LINKABLE_STRATEGY));
+        return new Point(index + NEXT_INCREMENT_OF_INDEX, link.generateNextLink(linkableStrategy));
     }
 
     public boolean hasRightLinkable() {
