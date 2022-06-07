@@ -67,15 +67,13 @@ class PointTest {
     @Test
     @DisplayName("첫번째 좌표 생성")
     void createFirstPoint() {
-        //given
-        Link expect = new Link(false, true);
-
         //when
         Point actual = Point.createFirst();
 
         //then
         assertThat(actual).extracting("link")
-                .isEqualTo(expect);
+                .extracting("left")
+                .isEqualTo(false);
     }
 
     @Test
