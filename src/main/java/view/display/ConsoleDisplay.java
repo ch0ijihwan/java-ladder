@@ -15,6 +15,7 @@ public class ConsoleDisplay implements Display {
     private static final String BLANK = " ";
     private static final String RESULT_DELIMITER = ":";
     private static final String RESULT_MESSAGE = "실행 결과";
+    private static final String ALL_PLAYER = "all";
     private static final int MAXIMUM_NAME_SIZE = 5;
     private static final int FIRST_INDEX = 0;
 
@@ -66,11 +67,11 @@ public class ConsoleDisplay implements Display {
 
     @Override
     public void displayResult(final LadderGameResult ladderGameResult, final String playerName) {
-        if (playerName.equals("all")) {
+        if (playerName.equals(ALL_PLAYER)) {
             ladderGameResult.getAllResult()
                     .forEach(this::printResult);
         }
-        if (!playerName.equals("all") && ladderGameResult.containName(playerName)) {
+        if (!playerName.equals(ALL_PLAYER) && ladderGameResult.containName(playerName)) {
             System.out.println(ladderGameResult.getResult(playerName));
         }
     }
